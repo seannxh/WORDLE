@@ -12,7 +12,7 @@ You are tasked with guessing a 5-letter word.
 
 There are over 5000 words in the dictionary that are 5 letters long.
 
-To simply input your letts please click on the webpage keyboard and press "Enter" to submit your guess!
+To simply input your letters please click on the webpage keyboard according to the letter you want to input and press "Enter" to submit your guess!
 
 You have 6 attempts to guess the word correctly.
 
