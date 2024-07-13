@@ -1,6 +1,6 @@
-import {realDictionary} from './dictionary.js';
+import { realDictionary } from './dictionary.js';
 
-const jsConfetti = new JSConfetti()
+const jsConfetti = new JSConfetti();
 
 const dictionarys = realDictionary.map(word => word.toUpperCase());
 let guessedWords = new Set();
@@ -24,7 +24,7 @@ function initializeGame() {
   gameOver = false;
   guessedWords.clear();
   clearBoard();
-  resetKeyboard()
+  resetKeyboard();
   document.getElementById("feedback").classList.add("hidden");
   document.getElementById("answer").classList.add("hidden");
 
@@ -52,7 +52,7 @@ function restartInit() {
   score = 0;
   updateScore();
   clearBoard();
-  resetKeyboard()
+  resetKeyboard();
   document.getElementById("feedback").classList.add("hidden");
   document.getElementById("answer").classList.add("hidden");
 
@@ -72,6 +72,7 @@ function restartInit() {
 function isWordValid(word) {
   return dictionarys.includes(word);
 }
+
 function clearBoard() {
   const board = document.getElementById("board");
   board.innerHTML = '';
@@ -132,7 +133,6 @@ function handleEnterPress() {
         updateScore();
         document.getElementById("answer").innerText = `CONGRATULATIONS! YOU'VE GOT THE WORD CORRECT!: ${word}`;
         document.getElementById("answer").classList.remove("hidden");
-
       }
       row += 1;
       col = 0;
@@ -163,6 +163,7 @@ function handleVirtualKeyboardInput(key) {
     }
   }
 }
+
 function updateKeyboard(letter, status) {
   let key = document.querySelector(`[data-key="${letter.toLowerCase()}"]`);
   if (key) {
@@ -170,6 +171,7 @@ function updateKeyboard(letter, status) {
     key.classList.add(status);
   }
 }
+
 function resetKeyboard() {
   document.querySelectorAll('.key').forEach(key => {
     key.classList.remove('correct', 'half', 'incorrect');
@@ -194,7 +196,7 @@ function update() {
     let letter = currentTile.innerText;
     if (word[x] === letter) {
       currentTile.classList.add("correct");
-      updateKeyboard(letter, 'correct')
+      updateKeyboard(letter, 'correct');
       correct += 1;
       letterCount[letter] -= 1;
     }
@@ -204,7 +206,7 @@ function update() {
         confettiColors: [
           '#E6E6FA', '#D8BFD8', '#DDA0DD', '#DA70D6', '#9370DB', '#FFFFFF'
         ]
-    })
+      });
     }
     currentTile.classList.add('animated');
   }
@@ -216,46 +218,44 @@ function update() {
     if (!currentTile.classList.contains("correct")) {
       if (word.includes(letter) && letterCount[letter] > 0) {
         currentTile.classList.add("half");
-        updateKeyboard(letter, 'half')
+        updateKeyboard(letter, 'half');
         letterCount[letter] -= 1;
       } else {
         currentTile.classList.add("incorrect");
-        updateKeyboard(letter, 'incorrect')
+        updateKeyboard(letter, 'incorrect');
       }
     }
     currentTile.classList.add('animated');
   }
 }
 
-
 function updateScore() {
   document.getElementById('score').innerText = `Score: ${score}`;
 }
 
 let giveup = document.getElementById('giveupButton');
-  giveup.addEventListener('click', () => {
-    let formedWord = "";
-    for (let x = 0; x < width; x++) {
-      let currentTile = document.getElementById(row.toString() + '-' + x.toString());
-      let letter = currentTile.innerText;
-      formedWord += letter;
-    }
-    if (formedWord === word) return;
-    document.getElementById('score').innerText = `Score: ${score}`;
-    word = dictionarys[Math.floor(Math.random() * dictionarys.length)];
-    console.log(word);
-    row = 0;
-    col = 0;
-    gameOver = true;
-    guessedWords.clear();
-    score -= 1;
-    updateScore();
-    resetKeyboard()
-    document.getElementById("answer").innerText = `WORDLE WAS ${word}! CLICK NEW WORD TO TRY AGAIN!`;
-    document.getElementById("answer").classList.remove("hidden");
-    document.getElementById("feedback").classList.add("hidden");
-  });
-
+giveup.addEventListener('click', () => {
+  let formedWord = "";
+  for (let x = 0; x < width; x++) {
+    let currentTile = document.getElementById(row.toString() + '-' + x.toString());
+    let letter = currentTile.innerText;
+    formedWord += letter;
+  }
+  if (formedWord === word) return;
+  document.getElementById('score').innerText = `Score: ${score}`;
+  word = dictionarys[Math.floor(Math.random() * dictionarys.length)];
+  console.log(word);
+  row = 0;
+  col = 0;
+  gameOver = true;
+  guessedWords.clear();
+  score -= 1;
+  updateScore();
+  resetKeyboard();
+  document.getElementById("answer").innerText = `WORDLE WAS ${word}! CLICK NEW WORD TO TRY AGAIN!`;
+  document.getElementById("answer").classList.remove("hidden");
+  document.getElementById("feedback").classList.add("hidden");
+});
 
 document.getElementById('restartButton').addEventListener('click', () => restartInit());
 document.getElementById('newwordButton').addEventListener('click', () => initializeGame());
