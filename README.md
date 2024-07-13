@@ -1,8 +1,6 @@
 # WORDLE-GAME
 
-
 https://github.com/user-attachments/assets/9b0b4b2f-0edf-4895-b6fe-bfcbbf5c5d08
-
 
 ## Getting Started!
 
