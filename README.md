@@ -48,3 +48,4 @@ If you press "Give Up" the score will subtract by -1 point
 
 ## Planned Future Enhancements
 One planned enhancement is to possibly increase the word length to 6 letters and expand the letter count feature for guessing words.
+Implement to be able to use on Mobile Phone!
