@@ -43,7 +43,7 @@ function initializeGame() {
 
 function restartInit() {
   document.getElementById('score').innerText = `Streak: ${score}`;
-  word = dictionary[Math.floor(Math.random() * dictionary.length)];
+  word = dictionarys[Math.floor(Math.random() * dictionarys.length)];
   console.log(word);
   row = 0;
   col = 0;
