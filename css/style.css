@@ -1,0 +1,210 @@
+:root {
+    --background-light: rgba(206, 206, 206, 0.829);
+    --text-light: rgba(0, 0, 0, 0.897);
+    --background-dark: rgba(0, 0, 0, 0.897);
+    --text-dark: rgba(255, 255, 255, 0.801);
+
+}
+
+body {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode {
+    background-color: var(--background-light);
+    color: var(--text-light);
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+#title {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+hr {
+    size: 3px;
+    width: 700px;
+    position: relative;
+}
+
+#board {
+    width: 350px;
+    height: 420px;
+    margin: 20px auto 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tile {
+    border: 2px solid rgb(131, 130, 130);
+    width: 60px;
+    height: 60px;
+    margin: 2.5px;
+    font-size: 36px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.correct{
+    border-color: gainsboro;
+    background-color: rgba(53, 13, 90, 0.877);
+    border: 2px solid rgb(131, 130, 130);
+}
+.half {
+    border-color: gainsboro;
+    background-color: rgb(40, 12, 139);
+    border: 2px solid rgb(131, 130, 130);
+}
+.incorrect {
+    border-color: gainsboro;
+    background-color: rgba(230, 230, 230, 0.692);
+    border: 2px solid rgb(131, 130, 130);
+}
+
+.hidden {
+    display: none;
+}
+
+#feedback, #answer {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    position: absolute;
+    top: 630px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+#keyboard-container {
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1000px;
+    height: 600px;
+    padding: 15px 0;
+    margin-top: 40px;
+    position: relative;
+}
+
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    margin: 0 auto 8px;
+}
+
+.keyboard-row button {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 62px;
+    height: 60px;
+    margin: 2px;
+    border: 2px solid rgb(0, 0, 0);
+    box-shadow: 0 0 5px #202020;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.keyboard-row button#wide-button {
+    flex: 3;
+}
+
+button:hover {
+    color: #1f1f1d;
+    text-shadow: 0 0 10px #000000;
+    cursor: pointer;
+}
+
+.nav-right {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0px;
+    padding: 5px 5px 10px 5px;
+    gap: 15px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.nav-left {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0px;
+    gap: 15px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.newword, .restart, .giveup, .toggle-btn {
+    background-color: rgba(220, 220, 220, 0.801) ;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    border: none;
+    padding: 5px 12.5px;
+    font-size: 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 5px;
+    position: relative;
+    border: 1px solid rgb(0, 0, 0);
+}
+.newword:hover, .restart:hover, .giveup:hover, .toggle-btn:hover{
+    cursor: pointer;
+}
+
+.color {
+    margin-right: 10px;
+}
+
+.animated {
+    animation: flip 0.5s ease;
+}
+
+@keyframes flip {
+    0% {
+        transform: scaleY(1);
+    }
+    50% {
+        transform: scaleY(0);
+    }
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+.heading {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    border: none;
+    font-size: 15px;
+    margin-top: 5px;
+    position: relative;
+}
+
+#score {
+    position: relative;
+    bottom: 0px;
+}
