@@ -28,6 +28,8 @@ If you have gotten the word correct and want a new word to guess please click on
 
 If you are having trouble and want to reset your score and restart the game please click on "Restart" button!
 
+## Dark/Light Mode
+
 IF you would like to switch between Light/Dark mode please click on "◒" on the top right of the page to toggle between 2 color modes!
 
 ## Score: 
